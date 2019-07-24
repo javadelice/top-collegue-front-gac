@@ -1,27 +1,16 @@
-# TopCollegueFront
+# TopCollegueFront [![Build Status](https://travis-ci.org/javadelice/top-collegue-front-gac.svg?branch=master)](https://travis-ci.org/javadelice/top-collegue-front-gac)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+## Déploiement
+https://javadelice.github.io/top-collegue-front-gac/
 
-## Development server
+## Component connexion - ('/connexion')
+Possibilité de se connecter ou de s'inscrire via un formulaire de connexion.  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Component NavBar
+Une barre de navigation qui affichera le firstName et lastName de l'utilisateur connecté, ainsi qu'un bouton de déconnexion. Possibilité de switcher entre les pages 'votes' et 'classement'. 
 
-## Code scaffolding
+## Component votes - ('/votes') 
+Affiche les candidats (lastName, firstName et picture). L'utilisateur connecté a la possibilité de voter pour chaque candidat (seul le dernier vote est pris en compte). 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Component classement - ('/classement')
+Affiche la liste des candidats (Score, picture, lastName et firstName) par score décroissant.
