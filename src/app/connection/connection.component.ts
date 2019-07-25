@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/authservice';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connection',
@@ -9,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ConnectionComponent implements OnInit {
 
-  constructor(private _authservice: AuthService) { }
+  constructor(private _authservice: AuthService, private router: Router) { }
 
   password: string;
   username: string;
@@ -17,7 +18,7 @@ export class ConnectionComponent implements OnInit {
   error: boolean = false;
 
   connection() {
-    this._authservice.signIn(this.username, this.password).subscribe(() => { this.error = false },
+    this._authservice.signIn(this.username, this.password).subscribe(() => { this.error = false, this.router.navigate([`/votes`])},
       (respError: HttpErrorResponse) => { this.error = true });
   }
 
