@@ -1,7 +1,8 @@
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { DataService } from '../service/data.service';
 import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { AuthService } from '../service/authservice';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,15 @@ import { Observable, of } from 'rxjs';
 
 export class ConnexionGuard implements CanActivate {
 
-  constructor(private router: Router, private _userService: DataService) { }
+  constructor(private router: Router, private _userService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return of(true);
+    return this._userService.collegueConnected().pipe(
+      map(collegue => { return true }),
+      catchError((err) => {
+        this.router.navigate(['/connexion']);
+        throw err;
+      })
+    )
   }
-
-
 }
