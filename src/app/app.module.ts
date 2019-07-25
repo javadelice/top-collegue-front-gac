@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
