@@ -12,7 +12,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { VotesComponent } from './votes/votes.component';
 import { ClassementComponent } from './classement/classement.component';
 import { ConnexionGuard } from './guards/ConnexionGuard';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'connexion', component: ConnectionComponent },
