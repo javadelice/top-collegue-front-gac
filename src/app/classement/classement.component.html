@@ -1,1 +1,11 @@
-<p>classement works!</p>
+<div *ngFor="let candidat of classement" class="row text-center ">
+  <div class="col-4 my-auto">
+    <h1>{{candidat.score >= 0 ? '+' : ''}}{{candidat.score}}</h1>
+  </div>
+  <div class="col-4">
+    <img class="img-fluid rounded shadow m-3" src="{{candidat.pictureUrl}}">
+  </div>
+  <div class="col-4 my-auto">
+    <h1>{{candidat.lastName | uppercase}} {{candidat.firstName}}</h1>
+  </div>
+</div>
