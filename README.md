@@ -14,3 +14,10 @@ Affiche les candidats (lastName, firstName et picture). L'utilisateur connecté 
 
 ## Component classement - ('/classement')
 Affiche la liste des candidats (Score, picture, lastName et firstName) par score décroissant.
+
+## Identifiants de connexion
+Pour vous connecter avec l'application, vous pouvez utiliser trois identifiants : 
+
+- clement (mot de passe : clement)
+- glen (mot de passe : glen)
+- adrien (mot de passe : adrien)
