@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4" *ngFor="let vote of votes">
+    <div class="col-4 border border-dark rounded-lg" *ngFor="let vote of votes">
       <img class="img-fluid" src="{{vote.pictureUrl}}"><br>
       <br>
       <h3>{{vote.lastName | uppercase}} {{vote.firstName}}</h3>
