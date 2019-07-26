@@ -7,4 +7,5 @@ export class Votes {
     private candidate?: Collegues,
     private score?: boolean) {
   }
+
 }
