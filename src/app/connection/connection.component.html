@@ -22,10 +22,11 @@
           <div class="form-group">
             <label for="UtilisateurName">Photo (optionnel)</label>
             <input type="text" class="form-control mb-3" name="picture" [(ngModel)]="pictureUrl" #picture="ngModel" placeholder="Format jpg ou png">
+            <p *ngIf="errorConnection == true" class="font-weight-light"><span class="text-danger">{{msgError}}</span></p>
           </div>
 
           <!--MESSAGE ERREUR-->
-          <div *ngIf="error == true">
+          <div *ngIf="errorConnection == true">
             <p class="bg-danger text-white rounded-lg p-1 mb-3 text-center">Les informations saisies ne correspondent pas</p>
           </div>
 
