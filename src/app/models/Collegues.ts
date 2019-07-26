@@ -1,18 +1,10 @@
 export class Collegues {
 
-  id: string;
-  userName: string;
-  pictureURL: string;
-  lastName: string;
-  firstName: string;
-
-  constructor(id, userName, pictureUrl, lastName, firstName) {
-    this.id = id;
-    this.userName = userName;
-    this.pictureURL = pictureUrl;
-    this.lastName = lastName;
-    this.firstName = firstName;
+  constructor(
+    public id?: string,
+    public userName?: string,
+    private pictureUrl?: string,
+    private lastName?: string,
+    private firstName?: string) {
   }
-
-
 }

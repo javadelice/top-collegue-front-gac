@@ -1,1 +1,22 @@
-<p>votes works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let liste of lisColl">
+      <img class="img-fluid" src="{{liste.pictureUrl}}}"><br>
+      <br>
+      <br>
+      <h3>{{liste.lastNAme | uppercase}} {{liste.firstName}}</h3>
+    </div>
+    <!--vote positif-->
+    <div *ngIf="score==true">
+      <button type="button" class="btn btn-success" (click)="voterPour()">Voter Pour</button>
+      <button type="button" class="btn btn-outline-danger" (click)="voterContre()">Voter Contre</button>
+    </div>
+
+    <!--vote négatif-->
+    <div *ngIf="score==false">
+      <button type="button" class="btn btn-outline-success" (click)="voterPour()">Voter Pour</button>
+      <button type="button" class="btn btn-danger" (click)="voterContre()">Voter Contre</button>
+
+    </div>
+  </div>
+</div>
