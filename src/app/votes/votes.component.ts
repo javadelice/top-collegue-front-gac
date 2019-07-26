@@ -29,19 +29,23 @@ export class VotesComponent implements OnInit {
   }
 
   voterPour(idCand: string) {
-    if (this.score !== true) {
-      this.score = true;
+    let candidatVote: CandidatVote = this.votes.find(candVote => {
+      return candVote.id === idCand;
+    });
+    if (candidatVote.score !== true) {
       this.dataSvc.voterPour(idCand).subscribe(unVote => {
-        this.dataSvc.publierVote(this.score);
+        candidatVote.score = true;
       });
     }
   }
 
   voterContre(idCand: string) {
-    if (this.score !== false) {
-      this.score = false;
+    let candidatVote: CandidatVote = this.votes.find(candVote => {
+      return candVote.id === idCand;
+    });
+    if (candidatVote.score !== false) {
       this.dataSvc.voterContre(idCand).subscribe(unVote => {
-        this.dataSvc.publierVote(this.score);
+        candidatVote.score = false;
       });
     }
   }

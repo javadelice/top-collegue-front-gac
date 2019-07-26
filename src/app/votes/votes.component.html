@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div *ngFor="let vote of votes">
+    <div class="col-4" *ngFor="let vote of votes">
       <img class="img-fluid" src="{{vote.pictureUrl}}"><br>
       <br>
       <h3>{{vote.lastName | uppercase}} {{vote.firstName}}</h3>
@@ -16,6 +16,12 @@
         <button type="button" class="btn btn-outline-success" (click)="voterPour(vote.id)">Voter Pour</button>
         <button type="button" class="btn btn-danger" (click)="voterContre(vote.id)">Voter Contre</button>
       </div>
+
+      <div *ngIf="vote.score==undefined">
+        <button type="button" class="btn btn-outline-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-outline-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
+
     </div>
   </div>
 </div>
