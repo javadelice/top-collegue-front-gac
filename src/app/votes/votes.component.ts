@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Collegues } from '../models/Collegues';
+import { CandidatVote } from '../models/CandidatVote';
 import { Votes } from '../models/Votes';
 
 @Component({
@@ -11,38 +11,37 @@ import { Votes } from '../models/Votes';
 })
 export class VotesComponent implements OnInit {
 
-  constructor(private _dataSvc: DataService) { }
+  constructor(private dataSvc: DataService) { }
 
-  lisColl: any[];
+  public votes: CandidatVote[] = [];
+  vote: Votes;
   err: string;
   score: boolean = false;
-  collegue: Collegues = new Collegues();
-  vote: Votes = new Votes();
 
 
   ngOnInit() {
-    this._dataSvc.liste()
-      .subscribe(listeCollegues => {
-        this.lisColl = listeCollegues;
+    this.dataSvc.liste()
+      .subscribe(votes => {
+        this.votes = votes;
       }), (error: HttpErrorResponse) => {
         this.err = error.status + ' - ' + error.error;
       };
   }
 
-  voterPour() {
+  voterPour(idCand: string) {
     if (this.score !== true) {
-      this._dataSvc.voter(this.vote).subscribe(unVote => {
-        this.score = true;
-        this._dataSvc.publierVote(this.score);
+      this.score = true;
+      this.dataSvc.voterPour(idCand).subscribe(unVote => {
+        this.dataSvc.publierVote(this.score);
       });
     }
   }
 
-  voterContre() {
+  voterContre(idCand: string) {
     if (this.score !== false) {
-      this._dataSvc.voter(this.vote).subscribe(unVote => {
-        this.score = false;
-        this._dataSvc.publierVote(this.score);
+      this.score = false;
+      this.dataSvc.voterContre(idCand).subscribe(unVote => {
+        this.dataSvc.publierVote(this.score);
       });
     }
   }

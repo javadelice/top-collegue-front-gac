@@ -1,1 +1,42 @@
-<p>connection works!</p>
+<div class="container-fluide mt-5">
+  <div class="row">
+    <div class="col-5">
+    </div>
+
+    <!--CHAMPS DE CONNEXION-->
+    <div class="col-2 border border-primary rounded-sm">
+      <form (ngSubmit)="connection()" #connectionCollegue="ngForm">
+        <div class="form-group mt-3">
+          <label for="UtilisateurName">Nom d'utilisateur</label>
+          <input type="text" class="form-control mb-1" name="user" [(ngModel)]="username" #user="ngModel" placeholder=""
+            required>
+          <p *ngIf="user.dirty && user.invalid"class="font-weight-light"><span class="text-danger">Champ
+              obligatoire</span></p>
+        </div>
+        <div class="form-group">
+          <label for="motDePasse">Mot de Passe</label>
+          <input type="password" class="form-control mb-1" name="mdp" [(ngModel)]="password" #pass="ngModel"
+            placeholder="" required>
+          <p *ngIf="pass.dirty && pass.invalid" class="font-weight-light"><span class="text-danger">Champ
+              obligatoire</span></p>
+          <div class="form-group">
+            <label for="UtilisateurName">Photo (optionnel)</label>
+            <input type="text" class="form-control mb-3" name="picture" [(ngModel)]="pictureUrl" #picture="ngModel" placeholder="Format jpg ou png">
+          </div>
+
+          <!--MESSAGE ERREUR-->
+          <div *ngIf="error == true">
+            <p class="bg-danger text-white rounded-lg p-1 mb-3 text-center">Les informations saisies ne correspondent pas</p>
+          </div>
+
+          <!--BOUTON CONNEXION-->
+          <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary">Connexion</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-5">
+    </div>
+  </div>
+</div>

@@ -1,22 +1,21 @@
 <div class="container-fluid">
   <div class="row">
-    <div *ngFor="let liste of lisColl">
-      <img class="img-fluid" src="{{liste.pictureUrl}}}"><br>
+    <div *ngFor="let vote of votes">
+      <img class="img-fluid" src="{{vote.pictureUrl}}"><br>
       <br>
+      <h3>{{vote.lastName | uppercase}} {{vote.firstName}}</h3>
       <br>
-      <h3>{{liste.lastNAme | uppercase}} {{liste.firstName}}</h3>
-    </div>
-    <!--vote positif-->
-    <div *ngIf="score==true">
-      <button type="button" class="btn btn-success" (click)="voterPour()">Voter Pour</button>
-      <button type="button" class="btn btn-outline-danger" (click)="voterContre()">Voter Contre</button>
-    </div>
+      <!--vote positif-->
+      <div *ngIf="vote.score==true">
+        <button type="button" class="btn btn-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-outline-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
 
-    <!--vote négatif-->
-    <div *ngIf="score==false">
-      <button type="button" class="btn btn-outline-success" (click)="voterPour()">Voter Pour</button>
-      <button type="button" class="btn btn-danger" (click)="voterContre()">Voter Contre</button>
-
+      <!--vote négatif-->
+      <div *ngIf="vote.score==false">
+        <button type="button" class="btn btn-outline-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
     </div>
   </div>
 </div>
