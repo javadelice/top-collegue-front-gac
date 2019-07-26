@@ -15,12 +15,14 @@ export class ConnectionComponent implements OnInit {
   password: string;
   username: string;
   pictureUrl?: string;
+  msgError:string;
 
-  error: boolean = false;
+  errorConnection: boolean = false;
 
   connection() {
-    this._authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.error = false, this.router.navigate([`/votes`]) },
-      (respError: HttpErrorResponse) => { this.error = true });
+    this._authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.errorConnection = false, this.router.navigate([`/votes`]) },
+      (respError: HttpErrorResponse) => { this.errorConnection = true, this.msgError = respError.error}
+      );
   }
 
   ngOnInit() {
