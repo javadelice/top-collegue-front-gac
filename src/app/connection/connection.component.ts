@@ -14,11 +14,12 @@ export class ConnectionComponent implements OnInit {
 
   password: string;
   username: string;
+  pictureUrl?: string;
 
   error: boolean = false;
 
   connection() {
-    this._authservice.signIn(this.username, this.password).subscribe(() => { this.error = false, this.router.navigate([`/votes`])},
+    this._authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.error = false, this.router.navigate([`/votes`]) },
       (respError: HttpErrorResponse) => { this.error = true });
   }
 

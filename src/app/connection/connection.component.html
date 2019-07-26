@@ -21,7 +21,7 @@
               obligatoire</span></p>
           <div class="form-group">
             <label for="UtilisateurName">Photo (optionnel)</label>
-            <input type="text" class="form-control mb-3" name="picture" placeholder="Format jpg ou png">
+            <input type="text" class="form-control mb-3" name="picture" [(ngModel)]="pictureUrl" #picture="ngModel" placeholder="Format jpg ou png">
           </div>
 
           <!--MESSAGE ERREUR-->
