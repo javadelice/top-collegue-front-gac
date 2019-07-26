@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ConnectionComponent implements OnInit {
 
-  constructor(private _authservice: AuthService, private router: Router) { }
+  constructor(private authservice: AuthService, private router: Router) { }
 
   password: string;
   username: string;
@@ -20,9 +20,11 @@ export class ConnectionComponent implements OnInit {
   errorConnection: boolean = false;
 
   connection() {
+
     this._authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.errorConnection = false, this.router.navigate([`/votes`]) },
       (respError: HttpErrorResponse) => { this.errorConnection = true, this.msgError = respError.error}
       );
+
   }
 
   ngOnInit() {

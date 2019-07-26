@@ -1,1 +1,27 @@
-<p>votes works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 border border-dark rounded-lg" *ngFor="let vote of votes">
+      <img class="img-fluid" src="{{vote.pictureUrl}}"><br>
+      <br>
+      <h3>{{vote.lastName | uppercase}} {{vote.firstName}}</h3>
+      <br>
+      <!--vote positif-->
+      <div *ngIf="vote.score==true">
+        <button type="button" class="btn btn-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-outline-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
+
+      <!--vote négatif-->
+      <div *ngIf="vote.score==false">
+        <button type="button" class="btn btn-outline-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
+
+      <div *ngIf="vote.score==undefined">
+        <button type="button" class="btn btn-outline-success" (click)="voterPour(vote.id)">Voter Pour</button>
+        <button type="button" class="btn btn-outline-danger" (click)="voterContre(vote.id)">Voter Contre</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -30,7 +30,7 @@ const routes: Routes = [
     ConnectionComponent,
     NavbarComponent,
     VotesComponent,
-    ClassementComponent
+    ClassementComponent,
   ],
   imports: [
     BrowserModule,

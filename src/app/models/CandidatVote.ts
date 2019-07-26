@@ -1,9 +1,11 @@
-export class CandidatClassement {
+export class CandidatVote {
 
   constructor(
+
+    public id: string,
     public lastName: string,
     public firstName: string,
     public pictureUrl: string,
-    public score: number
-  ) { }
+    public score: boolean ) {
+  }
 }
