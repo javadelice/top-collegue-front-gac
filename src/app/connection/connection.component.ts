@@ -21,7 +21,7 @@ export class ConnectionComponent implements OnInit {
 
   connection() {
 
-    this._authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.errorConnection = false, this.router.navigate([`/votes`]) },
+    this.authservice.signIn(this.username, this.password, this.pictureUrl).subscribe(() => { this.errorConnection = false, this.router.navigate([`/votes`]) },
       (respError: HttpErrorResponse) => { this.errorConnection = true, this.msgError = respError.error}
       );
 
