@@ -20,10 +20,11 @@ export class AuthService {
     return this.subCollegueConnected.asObservable();
   }
 
-  signIn(user: string, password: string) {
+  signIn(user: string, password: string, pictureUrl?:string) {
     return this.httpClient.post(environment.backendUrl + `/auth`, {
       "username": user,
-      "password": password
+      "password": password,
+      "pictureUrl": pictureUrl
     }, { withCredentials: true });
 
   }
